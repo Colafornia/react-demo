@@ -147,3 +147,6 @@ a:hover {
 #slider-control .active .dot {
   background-color: #fff;
 }
+#react-logo{
+  position: relative;
+}
