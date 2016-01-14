@@ -1,4 +1,6 @@
+
 body {
+  position: relative;
   background-color: #1F1E34;
   color: #FFF;
   font-family: "Avenir Next",
@@ -31,18 +33,117 @@ a:hover {
   color: #DADADA;
   text-decoration: none;
 }
-.section {
-  background-color: rgba(255,0,0,0.3);
-  border: 2px solid #FFF;
-  display: flex;
+.overlay {
+    z-index: 10;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(31,30,52,1));
 }
-.react-logo{
+#intro-section{
+  z-index: -999;
+  background-image: url(../img/background.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.section1{
+  border: 1px solid #FFF;
+  height: 100vh;
+  z-index: -999;
+  background-image: url(../img/background.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.one{
+  display: flex;
+  height: 100vh;
   flex-direction:column;
   justify-content:center;
+}
+.section2{
+  position: relative;
+  border: 1px solid #FFF;
+  display: flex;
+  height: 100vh;
+}
+.section3{
+  position: relative;
+  border: 1px solid #FFF;
+  display: flex;
+  overflow: hidden;
+  height: 100vh;
+  flex:1;
+  flex-direction:row;
   align-items:center;
+  justify-content:center;
+}
+.section1 h1{
+  text-align: center;
+}
+.section1 img{
+  text-align: center;
+}
+.section3 img{
+  position: absolute;
+  transform: rotate(-45deg);
+  right: -7%;
+  bottom: -13%;
 }
 .toplinks{
   display: flex;
   flex-direction:row;
   justify-content :center;
+}
+.toplinks a{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.iphone-demo {
+  align-self: stretch;
+  flex-grow: 1;
+  flex-basis:0;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.feature-description {
+  align-self: stretch;
+  flex-grow: 1;
+  flex-basis:0;
+  display: flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+.feature-text {
+    position: absolute;
+    top: 30%;
+}
+.iphone-demo img {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+#slider-control {
+  position: fixed;
+  top: 36%;
+  right: 1%;
+  padding: 3px;
+}
+
+#slider-control a {
+  padding: 3px;
+}
+
+#slider-control .dot {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+}
+
+#slider-control .active .dot {
+  background-color: #fff;
 }
