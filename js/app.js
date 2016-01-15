@@ -3,6 +3,7 @@ window.onload = function() {
   updateSliderControl();
   animateRobot();
   addSmoothScrolling();
+  addScrollMagic();
 };
 // 使用 onscroll 回调函数来更新 slider
 window.onscroll = function() {
@@ -10,6 +11,28 @@ window.onscroll = function() {
   updateSliderControl();
 }
 var $logo = document.getElementById("react-logo");
+function addScrollMagic(){
+  var controller = new ScrollMagic.Controller();
+  var fadeScene = new ScrollMagic.Scene({
+    triggerElement: ".toplinks",
+    duration: "100%"
+  }).setTween("#intro-section", {
+    opacity: 0
+  }).addTo(controller);
+  var moveScene = new ScrollMagic.Scene({
+    triggerElement: ".toplinks",
+    duration: "100%"
+  }).setTween(".iphone-overlay", {
+    width:"50%",
+    y:0
+  }).addTo(controller);
+  var pinScene = new ScrollMagic.Scene({
+    triggerElement: ".toplinks",
+    triggerHook:"onLeave",
+    duration: "100%"
+  }).setPin(".iphone-overlay")
+    .addTo(controller);
+}
 function animateLogo(){
 	TweenMax.fromTo("#react-logo",1, {
       // from
@@ -27,18 +50,18 @@ function animateLogo(){
 
       // option to reverse the animation and rerun
       yoyo: true,
-    
+
       ease: Power2.easeInOut,
     }
-  );
+    );
 }
 var deg360 = 2*Math.PI;
 function animateRobot(){
 	var t = new TimelineMax({yoyo: true, repeat: -1});
 	t.to('#android-robot',1,{rotation: "-=15deg"})
-	 .to('#android-robot',1,{rotation: "+=15deg"})
-	 .to('#android-robot',1,{rotation: "+=15deg"})
-	 .to('#android-robot',1,{rotation: "-=15deg"})
+  .to('#android-robot',1,{rotation: "+=15deg"})
+  .to('#android-robot',1,{rotation: "+=15deg"})
+  .to('#android-robot',1,{rotation: "-=15deg"})
 }
 function updateSliderControl() {
   // 获得所有的 slider 链接
@@ -66,14 +89,14 @@ function addSmoothScrolling() {
 
 	for(var i = 0; i < links.length; i++) {
 		
-			var link = links[i];
-			link.addEventListener("click",function(event) {
-				event.preventDefault();
-				var href = this.getAttribute("href");
-				scrollToElement(href);
+   var link = links[i];
+   link.addEventListener("click",function(event) {
+    event.preventDefault();
+    var href = this.getAttribute("href");
+    scrollToElement(href);
 
-		});
-	}
+  });
+ }
 }
 //页面滚动动画
 function scrollToElement(element) {

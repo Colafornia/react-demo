@@ -56,6 +56,7 @@ a:hover {
   background-size: cover;
   background-position: center;
 }
+
 .one{
   display: -webkit-box;
   display: -webkit-flex;
@@ -71,6 +72,9 @@ a:hover {
   -webkit-justify-content:center;
       -ms-flex-pack:center;
           justify-content:center;
+}
+.iphone-overlay{
+  transform:translate(0,200px);
 }
 .section2{
   position: relative;

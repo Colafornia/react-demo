@@ -5,7 +5,9 @@ css:
 
 .PHONY: server
 server:
-	browser-sync start --server --files='index.html,bundle/app.css,js/app.js'
+	browser-sync start --server --files='index.html,css/app.css,js/app.js'
+	mkdir -p bundle
+	postcss --watch --use autoprefixer --use postcss-import css/app.css --output bundle/app.css
 
 
 .PHONY: clean
