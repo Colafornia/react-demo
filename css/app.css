@@ -161,3 +161,13 @@ a:hover {
 #react-logo{
   position: relative;
 }
+/*响应式－媒体查询*/
+@media (max-height: 700px) {
+  h1{
+    font-size: 40px;
+  }
+  #react-logo{
+    height: 180px;
+  }
+
+}
